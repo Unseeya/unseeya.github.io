@@ -24,6 +24,7 @@
     <link rel="icon" type="image/png" sizes="32x32" href="favicon-32x32.png">
     <link rel="icon" type="image/png" sizes="16x16" href="favicon-16x16.png">
     <link rel="manifest" href="site.webmanifest">
+    <link href="https://assets.calendly.com/assets/external/widget.css" rel="stylesheet">
 
 </head>
 
@@ -605,7 +606,7 @@
             <div class="row s-footer__buttons">
                
                 <div class="column xl-6 tab-12">
-                    <a href="mailto:#0" class="btn btn--primary btn--large u-fullwidth">Message Me</a>
+                    <a href="#0" id="quote-btn" class="btn btn--primary btn--large u-fullwidth">GET A QUOTE</a>
                 </div>
           
                 <div class="column xl-6 tab-12">                    
@@ -670,6 +671,28 @@
     ================================================== -->
     <script src="js/plugins.js"></script>
     <script src="js/main.js"></script>
+    <script src="https://assets.calendly.com/assets/external/widget.js" type="text/javascript" async></script>
+    <script type="text/javascript">
+    window.onload = function() {
+      Calendly.initBadgeWidget({
+        url: 'https://calendly.com/ansiya',
+        text: 'Schedule Meeting',
+        color: '#e25936',
+        textColor: '#ffffff',
+        branding: false
+      });
+
+      // Add click event handler for the GET A QUOTE button
+      document.getElementById('quote-btn').addEventListener('click', function(e) {
+        e.preventDefault();
+        // Find the Calendly badge content element and click it
+        var calendlyBadge = document.querySelector('.calendly-badge-content');
+        if (calendlyBadge) {
+          calendlyBadge.click();
+        }
+      });
+    }
+    </script>
 
 </body>
 </html>
